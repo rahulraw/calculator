@@ -10,3 +10,7 @@ To run on terminal use:
 ```bash
 g++ -std=c++11 Calculator.cpp main.cpp
 ```
+to quit calculator simple type:
+```
+quit
+```
