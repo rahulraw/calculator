@@ -1,4 +1,4 @@
-## a simple calculator
+## calculator
 a simple calculator implementation using the Shunt Yard algorithm.
 The calculator can currently handle:
 * single and multidigit arithmetic
