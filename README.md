@@ -9,7 +9,9 @@ The calculator can currently handle:
 To run on terminal use:
 ```bash
 g++ -std=c++11 Calculator.cpp main.cpp
+./a.out
 ```
+
 to quit calculator simple type:
 ```
 quit
