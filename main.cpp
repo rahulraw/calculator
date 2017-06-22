@@ -10,6 +10,7 @@
 
 using namespace std;
 
+/* go to Calculator.cpp to checkout the cool stuff */
 int main()
 {
 	string equation = "";

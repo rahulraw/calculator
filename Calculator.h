@@ -6,6 +6,8 @@ using namespace std;
 class Calculator
 {
 	private:
+
+		/* Precedence determined by simple hash map */
 		unordered_map <char, int> opPrecedence =
 		{
 			{'&',5},

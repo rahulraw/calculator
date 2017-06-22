@@ -11,11 +11,16 @@
 using namespace std;
 
 
+/* determines if char is a number */
 bool Calculator::isNumber(char c)
 {
-			return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 
+/* 
+Determines if string is a number (can include decimal values and negatives).
+This function changes unary negatives (-) to "u"
+*/
 bool Calculator::isNumber(std::string& s)
 {
     int period_cnt = 0;
@@ -36,6 +41,7 @@ bool Calculator::isNumber(std::string& s)
     return true;
 }
 
+/* Checks if char an operator */
 bool Calculator::isOperator(char c)
 {
 	return (c == '*' ||
@@ -46,6 +52,7 @@ bool Calculator::isOperator(char c)
 			c == '|' );
 }
 
+/* Simple debug functions */
 void Calculator::debugShuntYard(char c,deque<string> out_queue, stack<char> op_stack)
 {
 	cout << setw(10) << "out_queue: ";
@@ -57,7 +64,9 @@ void Calculator::debugShuntYard(char c,deque<string> out_queue, stack<char> op_s
 		cout << op_stack.top() << "  size: " << op_stack.size(); 
 	cout << endl << endl;
 }		
-		
+	
+/* This funtion utilizes the Shunt Yard algorithm to play infix expressions to postfix */
+// To learn more about shunt yard visit: https://en.wikipedia.org/wiki/Shunting-yard_algorithm 	
 deque <string> Calculator::makePostfix(string eq) // using Shunt Yard algorithm
 {
 	stack < char > op_stack;
@@ -140,6 +149,8 @@ deque <string> Calculator::makePostfix(string eq) // using Shunt Yard algorithm
 	return out_queue;
 }
 
+/* Solves postfix expressions */
+/* To learn how visit https://en.wikipedia.org/wiki/Reverse_Polish_notation */
 double Calculator::solvePostfix(deque <string> eq)
 {
 	stack < double > solve_stack;
@@ -185,10 +196,12 @@ double Calculator::solvePostfix(deque <string> eq)
 	return solve_stack.top();
 }
 
+/* nothing to see here... */
 Calculator::Calculator()
 {
 }
 
+/* calls Shuntyard algorithm and feeds it to the postfix solver */
 double Calculator::solve(string eq)
 {
 	eq.erase(remove_if(eq.begin(), eq.end(), ::isspace), eq.end());
